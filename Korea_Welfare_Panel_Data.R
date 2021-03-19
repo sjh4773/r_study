@@ -16,3 +16,13 @@ welfare <- rename(welfare,                 # 성별
                   income = p1002_8aq1,     # 직업 코드
                   code_job = h10_eco9,     # 직업 코드
                   code_region = h10_reg7)  # 지역 코드
+
+class(welfare$sex)
+
+table(welfare$sex)
+
+
+welfare$sex <- ifelse(welfare$sex == 9, NA,
+                      welfare$sex) #이상치 결측 처리
+
+table(is.na(welfare$sex))
